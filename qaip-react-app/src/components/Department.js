@@ -28,7 +28,7 @@ function Department(props) {
         const entSemRef = parseInt(semRef.current.value);
     
             
-        axios.put( "https://localhost:44350/api/departments/"+props.departmentId,{
+        axios.put("https://localhost:44350/api/departments/"+props.departmentId,{
             departmentId:props.departmentId,
           departmentName: entNameRef,
           departmentDescription: entDescRef,

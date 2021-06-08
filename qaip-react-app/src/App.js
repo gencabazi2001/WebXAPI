@@ -9,15 +9,16 @@ import Subjects from "./pages/Subjects";
 import Main from "./pages/Main";
 import PublicPosts from "./pages/PublicPosts";
 import NavBar from "../src/components/NavBar/NavBar";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <Container>
+    <Container fluid style={{padding:"0px", margin:"0px"}}>
    
       <Switch>
         <Route path="/" exact>
         <NavBar />
-          <Users />
+          <Home />
         </Route>
         <Route path="/users" exact>
         <NavBar />

@@ -16,6 +16,7 @@ function Departments() {
       function reload(){
         setRefreshKey(oldKey => oldKey +1)
       }
+      
     const nameRef = useRef();
     const descRef = useRef();
     const semRef = useRef();

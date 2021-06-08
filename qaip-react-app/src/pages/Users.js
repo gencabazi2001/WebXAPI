@@ -1,4 +1,4 @@
-import { Table, Button, Modal, Form } from "react-bootstrap";
+import { Table, Button, Modal, Form, Spinner } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import User from "../components/User";
@@ -79,8 +79,8 @@ function Users(props) {
 
   if (isLoading) {
     return (
-      <section>
-        <p>Loading...</p>
+      <section style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <Spinner animation="grow" />
       </section>
     );
   }
