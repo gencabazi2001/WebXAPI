@@ -10,6 +10,7 @@ import Main from "./pages/Main";
 import PublicPosts from "./pages/PublicPosts";
 import NavBar from "../src/components/NavBar/NavBar";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -20,7 +21,10 @@ function App() {
         <NavBar />
           <Home />
         </Route>
-        
+        <Route path="/profile" exact>
+        <NavBar />
+          <Profile />
+        </Route>
         <Route path="/users" exact>
         <NavBar />
           <Users />
