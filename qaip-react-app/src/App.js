@@ -20,6 +20,7 @@ function App() {
         <NavBar />
           <Home />
         </Route>
+        
         <Route path="/users" exact>
         <NavBar />
           <Users />
