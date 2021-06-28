@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import Subject from "../components/Subject";
 import { useRef } from "react";
-import { useHistory } from "react-router-dom";
 import React from 'react'
 import axios from 'axios'
 
@@ -16,7 +15,6 @@ function Subjects() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const history = useHistory();
     function reload(){
       setRefreshKey(oldKey=>oldKey+1);
     }

@@ -40,6 +40,37 @@ namespace WebXAPI.Controllers
 
             return publicPost;
         }
+        [HttpGet("user/{id}")]
+        public async Task<ActionResult<List<PublicPost>>> GetUserPosts(int id)
+        {
+            var userPosts = await _context.PublicPosts
+             .Where(s => s.UserId == id).ToListAsync();
+            if (userPosts == null)
+            {
+                return NotFound();
+            }
+       
+            return userPosts;
+        }
+        //
+       // select* from PublicPost p join Users u on p.userID=u.userID
+        //where u.userDepartment=(select userDepartment from Users where userID=1)
+        [HttpGet("dep/user/{id}")]
+        public async Task<ActionResult<List<PublicPost>>> GetFeedPublicPosts(int id)
+        {
+            var userDep = await _context.Users.FindAsync(id);
+
+            var dep = userDep.UserDepartment;
+
+            var feedPosts = await _context.PublicPosts.Include(pp => pp.User)
+             .Where(s => s.User.UserDepartment==dep).ToListAsync();
+            if (feedPosts == null)
+            {
+                return NotFound();
+            }
+
+            return feedPosts;
+        }
 
         // PUT: api/PublicPosts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

@@ -5,7 +5,6 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import { useState ,useRef} from "react";
 import {Modal,Form} from 'react-bootstrap'
-import Users from '../pages/Users';
 
 function PrivateGorup(props) {
 

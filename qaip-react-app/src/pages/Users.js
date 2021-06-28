@@ -83,7 +83,10 @@ function Users(props) {
         <Spinner animation="grow" />
       </section>
     );
+   
+
   }
+  else{
   return (
     <div className="border">
       <Table>
@@ -191,6 +194,8 @@ function Users(props) {
       </Modal>
     </div>
   );
+    
+          }
 }
 
 export default Users;

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -26,6 +28,11 @@ namespace WebXAPI.Models
         public int UserDepartment { get; set; }
         public string UserRole { get; set; }
 
+        
+        [NotMapped]
+        public IFormFile File { get; set; }
+
+        
         public virtual Department UserDepartmentNavigation { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual ICollection<GroupMember> GroupMembers { get; set; }

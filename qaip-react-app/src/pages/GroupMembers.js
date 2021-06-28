@@ -2,7 +2,6 @@ import { Table, Button, Modal, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import { useRef } from "react";
-import { useHistory } from "react-router-dom";
 import GroupMember from "../components/GroupMember";
 import axios from "axios";
 
@@ -19,7 +18,6 @@ function GroupMembers() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-    const history = useHistory();
       
     const subjectIDRef = useRef();
     const userIDRef = useRef();

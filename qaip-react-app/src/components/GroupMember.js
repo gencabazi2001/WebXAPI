@@ -13,7 +13,6 @@ function GroupMember(props) {
     const handleShow = () => setShow(true);
 
    
-    const subjectIDRef = useRef();
     const userIDRef = useRef();
     const DOJRef = useRef();
 

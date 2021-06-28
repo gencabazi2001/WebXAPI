@@ -9,50 +9,39 @@ import Subjects from "./pages/Subjects";
 import Main from "./pages/Main";
 import PublicPosts from "./pages/PublicPosts";
 import NavBar from "../src/components/NavBar/NavBar";
-import Home from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
 import Profile from "./pages/Profile";
+import Footer from "./components/NavBar/Footer";
+import ProtectedRoute from "./ProtectedRoute";
+import adm from './asdmcomp/Navbar'
+
 
 function App() {
   return (
     <Container fluid style={{padding:"0px", margin:"0px"}}>
-   
+          
       <Switch>
+     
         <Route path="/" exact>
-        <NavBar />
-          <Home />
+
+          <LandingPage />
         </Route>
-        <Route path="/profile" exact>
-        <NavBar />
-          <Profile />
-        </Route>
-        <Route path="/users" exact>
-        <NavBar />
-          <Users />
-        </Route>
-        <Route path="/main" exact>
-          <Main />
-        </Route>
-        <Route path="/subjects">
-        <NavBar />
-          <Subjects />
-        </Route>
-        <Route path="/publicposts">
-        <NavBar />
-          <PublicPosts />
-        </Route>
-        <Route path="/pgroups">
-        <NavBar />
-          <PGroups />
-        </Route>
-        <Route path="/groupmembers">
-        <NavBar />
-          <GroupMembers />
-        </Route>
-        <Route path="/departments">
-        <NavBar />
-          <Departments />
-        </Route>
+        <ProtectedRoute path="/profile" exact component={Profile} navbar={NavBar}/>
+        <ProtectedRoute path="/users" exact component={ Users } navbar={adm}/>
+        <ProtectedRoute path="/main" exact component={Main} navbar={NavBar}/>
+        <ProtectedRoute path="/subjects" exact component={Subjects} navbar={NavBar}/>
+        <ProtectedRoute path="/publicposts" exact component={PublicPosts} navbar={NavBar}/>
+        <ProtectedRoute path="/pgroups" exact component={PGroups} navbar={NavBar}/>
+        <ProtectedRoute path="/groupmembers" exact component={GroupMembers} navbar={NavBar}/>
+        <ProtectedRoute path="/departments" exact component={Departments} navbar={NavBar}/>
       </Switch>
+        
+      <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <Footer/>
     </Container>
   );
 }

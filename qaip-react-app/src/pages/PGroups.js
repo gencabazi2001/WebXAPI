@@ -1,9 +1,7 @@
 import { Table, Button, Modal, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
-import User from "../components/User";
 import { useRef } from "react";
-import { useHistory } from "react-router-dom";
 import PrivateGorup from "../components/PrivateGorup";
 import axios from "axios";
 
@@ -20,8 +18,6 @@ function PGroups() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const history = useHistory();
-      
     const pgIdRef = useRef();
     const uIdRef = useRef();
     const nameRef = useRef();

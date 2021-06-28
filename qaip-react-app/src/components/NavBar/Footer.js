@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Footer() {
     return (
-       <footer className="border bg-info position-fixed bottom-0">
+       <footer className="border bg-info">
             <section
     className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <div className="me-5 d-none d-lg-block">
@@ -11,22 +11,22 @@ function Footer() {
     </div>
 
     <div>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-facebook-f"></i>
       </a>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-twitter"></i>
       </a>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-google"></i>
       </a>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-instagram"></i>
       </a>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-linkedin"></i>
       </a>
-      <a href="" className="me-4 text-reset">
+      <a href="/" className="me-4 text-reset">
         <i className="fab fa-github"></i>
       </a>
     </div>
