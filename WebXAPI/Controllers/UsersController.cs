@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,69 +114,45 @@ namespace WebXAPI.Controllers
             
         }
 
-        /*
-         * 
-         *   try
-              {
-                  if (user.File.Length > 0)
-                  {
-                      if (!Directory.Exists(_environment.WebRootPath + "\\Images\\" + user.UserId + "\\"))
-                      {
-                          Directory.CreateDirectory(_environment.WebRootPath + "\\Images\\" + user.UserId + "\\");
-                      }
-                      using (FileStream fileStream = System.IO.File.Create(_environment.WebRootPath + "\\Images\\" + user.UserId + "\\" + user.File.FileName))
-                      {
-                          user.File.CopyTo(fileStream);
-                          fileStream.Flush();
-                      }
-                  }
-                  else
-                  {
-                      return BadRequest();
-                  }
-              }catch(Exception ex)
-              {
-                  return BadRequest();
-              }
-         * */
+      
 
-        [HttpPost("profilepic/{id}")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> PostUserProfilePic(int id, User user)
+        [HttpPost("profilepic/{id}"),DisableRequestSizeLimit]
+   
+        public async Task<IActionResult> PostUserProfilePic(int id)
         {
+            var user = await _context.Users.FindAsync(id);
 
-            var file = user.File;
             try
             {
-                if (user.File.Length > 0)
-                {
-                    if (!Directory.Exists(_environment.WebRootPath + "\\Images\\" + user.UserId + "\\"))
+                var file =  Request.Form.Files[0];
+                var folderName =  "Images";
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (file.Length > 0) {
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
-                        Directory.CreateDirectory(_environment.WebRootPath + "\\Images\\" + user.UserId + "\\");
+                         file.CopyTo(stream);
                     }
 
-                    string rootpath = _environment.WebRootPath;
-                    string fileName = Path.GetFileNameWithoutExtension(user.File.FileName);
-                    string path = Path.Combine(rootpath + "/Images/"+user.UserId+"/", fileName);
-                    using (var fileStream = new FileStream(path,FileMode.Create))
-                    {
-                     await  user.File.CopyToAsync(fileStream);
-                        fileStream.Flush();
-                    }
-                }
-                else
+
+                    user.UserPhotoFileName = dbPath;
+                    _context.SaveChanges();
+
+                    return Ok(new { user });
+                }else
                 {
                     return BadRequest();
                 }
             }
-            catch (Exception ex)
-            {
-                return BadRequest();
+            catch(Exception e) {
+                return StatusCode(500, $"Internal server error: {e}");
             }
-            return NoContent();
-         
-        }
 
+     
+
+        }
 
 
 

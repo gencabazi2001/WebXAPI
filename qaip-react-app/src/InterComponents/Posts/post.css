@@ -1,0 +1,45 @@
+.DropDownMenu{
+    height:200px;
+    width:200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    z-index: 5;
+    position: absolute;
+    transition: 0.5s;
+    border:1px solid #cfcfcf;
+    box-shadow: 5px 5px rgba(163, 165, 158, 0.25);
+    
+}
+.menuItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: rgba(163, 165, 158, 0);
+    transition: 0.3s;
+    width:100%;
+    text-align: center;
+    padding:0px 5px;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+.menuItem p {
+
+    margin-top: 1px;
+}
+.menuItem:hover{
+    background-color:rgba(163, 165, 158, 0.25) ;
+
+}
+.Comment{
+    background-color: rgba(163, 165, 158, 0.25);
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}

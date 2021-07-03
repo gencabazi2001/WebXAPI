@@ -40,6 +40,20 @@ namespace WebXAPI.Controllers
 
             return publicPost;
         }
+
+        [HttpGet("replyTo/{id}")]
+        public async Task<ActionResult<List<PublicPost>>> GetReplies(int id)
+        {
+            var publicPost = await _context.PublicPosts.Where(r => r.ReplyTo==id).ToListAsync();
+
+            if (publicPost == null)
+            {
+                return NotFound();
+            }
+
+            return publicPost;
+        }
+
         [HttpGet("user/{id}")]
         public async Task<ActionResult<List<PublicPost>>> GetUserPosts(int id)
         {
@@ -123,6 +137,7 @@ namespace WebXAPI.Controllers
             {
                 return NotFound();
             }
+
 
             _context.PublicPosts.Remove(publicPost);
             await _context.SaveChangesAsync();

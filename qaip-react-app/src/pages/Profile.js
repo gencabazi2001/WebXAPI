@@ -13,13 +13,12 @@ import MyMedia from "../InterComponents/MyMedia";
 import MyReplies from "../InterComponents/MyReplies";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 function Profile() {
   const [ProfileTab, setProfileTab] = useState(2);
   const [userData, setData] = useState({});
   const [fetched, setFetched] = useState(false);
 
-
+ 
   function profileHandler(e) {
     setProfileTab(e);
   }
@@ -33,9 +32,17 @@ function Profile() {
       else if (ProfileTab == 2)
         return  (
           <MyProfile
+             id= {userData.userId}
             name={userData.userFirstName}
             lname={userData.userLastName}
             department={userData.userDepartmentNavigation.departmentName}
+            depId={userData.userDepartment}
+            pic ={userData.userPhotoFileName}
+            bio = {userData.userDescription}
+            pass = {userData.userPassword}
+            email={userData.userEmail}
+       
+         
           />
         );
       else return <MyMedia />;
