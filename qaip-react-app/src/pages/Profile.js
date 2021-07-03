@@ -32,7 +32,7 @@ function Profile() {
       localStorage.setItem("user", js);
       console.log(userData);
       if(userData.userRole==='admin'){
-       history.replace('/users')
+       history.replace('/dashboard')
       }
       if (ProfileTab == 1) return <MyReplies />;
       else if (ProfileTab == 2)

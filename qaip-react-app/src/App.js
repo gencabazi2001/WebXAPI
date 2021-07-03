@@ -17,6 +17,8 @@ import Post from './InterComponents/Posts/Post';
 import MyProfile from "./InterComponents/MyProfile";
 import MyMedia from "./InterComponents/MyMedia";
 import Feed from './PostFeed/Feed'
+import Dashboard from "./pages/Dashboard";
+import Group from './PostFeed/Group'
 
 
 function App() {
@@ -35,7 +37,7 @@ function App() {
         <ProtectedRoute path="/main" exact component={Main} navbar={NavBar}/>
         <ProtectedRoute path="/subjects" exact component={Subjects} navbar={NavBar}/>
         <ProtectedRoute path="/publicposts" exact component={PublicPosts} navbar={NavBar}/>
-        <ProtectedRoute path="/pgroups" exact component={PGroups} navbar={NavBar}/>
+        <ProtectedRoute path="/privategroups" exact component={Group} navbar={NavBar}/>
         <ProtectedRoute path="/groupmembers" exact component={GroupMembers} navbar={NavBar}/>
         <ProtectedRoute path="/departments" exact component={Departments} navbar={NavBar}/>
         <Route path="/post"exact>

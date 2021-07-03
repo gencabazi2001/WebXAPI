@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
+
 import {
 	Col,
 	Container,
@@ -10,6 +9,7 @@ import {
 	Spinner,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddPost from "../Functions/AddPost";
 
 function Group() {
 	return (
@@ -42,10 +42,12 @@ function Group() {
 								<Button variant='info'>Genc Abazi</Button>
 								<Button variant='dark'>Uranik Hodaj</Button>
 							</ButtonGroup>
-							<Button></Button>
+							<Button className='w-100 mt-5'>Add Member</Button>
 						</Col>
 						<Col xs={8} className='border'>
-							<Row className='m-1'></Row>
+							<Row className='m-1'>
+						<AddPost/>
+							</Row>
 						</Col>
 
 						<Col

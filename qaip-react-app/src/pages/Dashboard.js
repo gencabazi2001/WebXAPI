@@ -11,7 +11,7 @@ import PGroups from './PGroups'
 import GroupMembers from './GroupMembers'
 import Departments from './Departments'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../CSSFolder/dashboard.css'
+import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
 
 function Dashboard() {

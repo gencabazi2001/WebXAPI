@@ -40,7 +40,7 @@ function Navbar() {
             
                     <Nav.Link href="/profile">Profile</Nav.Link>
                     <Nav.Link href="/feed">Feed</Nav.Link>
-                    <Nav.Link href="#">Private Groups</Nav.Link>
+                    <Nav.Link href="/privategroups">Private Groups</Nav.Link>
 
                     {/* { adm ? (<Nav.Link href="#" >
                         Admin Dashboard

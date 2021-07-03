@@ -69,7 +69,7 @@ namespace WebXAPI.Controllers
         //
        // select* from PublicPost p join Users u on p.userID=u.userID
         //where u.userDepartment=(select userDepartment from Users where userID=1)
-        [HttpGet("dep/user/{id}")]
+        [HttpGet("feed/{id}")]
         public async Task<ActionResult<List<PublicPost>>> GetFeedPublicPosts(int id)
         {
             var userDep = await _context.Users.FindAsync(id);

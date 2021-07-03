@@ -11,8 +11,24 @@ import {
 	Spinner,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddPost from "../Functions/AddPost";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+import Post from "../InterComponents/Posts/Post";
 
 function Feed() {
+	var user= JSON.parse(localStorage.getItem('user'));
+	var id = user.userId;
+	const [posts,setPosts]=useState([]);
+	const [fetched,setFetched]=useState(false);
+
+	useEffect(()=>{
+		axios.get("https://localhost:44350/api/publicposts/feed/"+id).then((response)=>setPosts(response.data)).then(()=>setFetched(true));
+		console.log(posts);
+
+	},[fetched])
+
 	return (
 		<div>
 			<h1 style={{ textAlign: "center", fontFamily: "Open sans" }}>
@@ -31,7 +47,23 @@ function Feed() {
 						</ButtonGroup>
 					</Col>
 					<Col xs={8} className='border'>
-						<Row className='m-1'></Row>
+						<Row className='m-1'>
+							<AddPost/>
+
+
+							{posts.map((post)=>(
+								<Post
+								key={post.postId}
+								id={post.postId}
+								text={post.postDesc}
+								userName={post.user.userFirstName}
+								title={post.postName}
+								picture={post.user.userPhotoFileName}
+								/>
+							))}
+
+							
+						</Row>
 					</Col>
 
 					<Col xs={2} className='border d-flex flex-column align-items-center'>
