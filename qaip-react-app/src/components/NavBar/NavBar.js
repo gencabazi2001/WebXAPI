@@ -1,52 +1,60 @@
-import React from 'react'
-import {Navbar,Nav,Button} from 'react-bootstrap'
-import { useHistory } from 'react-router';
-import { useState,useEffect } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router'
+import { Navbar as BNavbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import styles from './Navbar.module.css'
 
+function Navbar() {
 
-function NavBar() {
-  const history = useHistory();
-  const [logged,setLogged] =  useState(false)
+    const history = useHistory();
+    const [logged, setLogged] = useState(false)
 
-  function logoutHandler(){
-    setLogged(false);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    history.push('/')
-  }
-  useEffect(() => {
-    if(localStorage.getItem("token")!=null){
-      setLogged(true);
+    function logoutHandler() {
+        setLogged(false);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        history.push('/')
     }
-  }, [logged])
-
+    useEffect(() => {
+        if (localStorage.getItem("token") != null) {
+            setLogged(true);
+        }
+    }, [logged])
 
     return (
-      <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark" style={{paddingLeft:"20px",paddingRight:"20px"}}>
-      <Navbar.Brand href="#home">Q.A.I.P.</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto" >
-          
-        <Nav.Link href="/users">Users</Nav.Link>
-      <Nav.Link href="/subjects">Subjects</Nav.Link>
-      <Nav.Link href="/publicposts">Public Posts</Nav.Link>
-      <Nav.Link href="/pgroups">Private Groups</Nav.Link>
-      <Nav.Link href="/groupmembers">Group Members</Nav.Link>
-      <Nav.Link href="/departments">Departments</Nav.Link>
-     <Nav.Item >
+        <BNavbar bg="dark" expand variant="dark" className="p-2">
+            <BNavbar.Brand href="#">Q.A.I.P.</BNavbar.Brand>
+            <BNavbar.Toggle aria-controls="navbarScroll" />
+            <BNavbar.Collapse id="navbarScroll" className="justify-content-md-between">
+                <Nav
+                    className="mr-auto my-2 my-lg-0 justify-content-md-around"
+                    style={ { maxHeight: '100px', width: '40%' } }
+                    navbarScroll
+                >
+                    <Nav.Link href="/profile">Profile</Nav.Link>
+                    <Nav.Link href="#">Feed</Nav.Link>
+                    <Nav.Link href="#">Private Groups</Nav.Link>
 
-    {logged&& <Button variant="danger" onClick={logoutHandler}>LogOut</Button> }
-  
-     </Nav.Item>
-    
-        </Nav>
-        
-      </Navbar.Collapse>
-      
-    </Navbar>
-    )
+                    { localStorage.getItem('user').userRole !== 'Admin' ? (<Nav.Link href="#" >
+                        Admin Dashboard
+                    </Nav.Link>) : null }
+                </Nav>
+
+                <div className="d-flex" > <Form className="d-flex">
+                    <FormControl
+                        type="search"
+                        placeholder="Search"
+                        className="mr-2"
+                        aria-label="Search"
+                    />
+                    <Button className={ styles.myBttn } style={ { marginLeft: '5px' } } variant="outline-success">Search</Button>
+                    {/* <button style={ { marginLeft: '5px' } } type="button" class="btn btn-outline-success">Success</button> */ }
+                </Form>
+
+                    <Button style={ { marginLeft: '15px' } } variant="danger" onClick={ () => logoutHandler() }>Log out</Button></div>
+            </BNavbar.Collapse>
+        </BNavbar>
+
+    );
 }
 
-export default NavBar
+export default Navbar;
