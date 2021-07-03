@@ -16,7 +16,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Post from './InterComponents/Posts/Post';
 import MyProfile from "./InterComponents/MyProfile";
 import MyMedia from "./InterComponents/MyMedia";
-
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -39,8 +39,8 @@ function App() {
         <Route path="/post"exact>
           <Post/>
         </Route>
-        <Route path ="/admin" exact>
-    <MyMedia/>
+        <Route path ="/dashboard" exact>
+          <Dashboard/>
         </Route>
       </Switch>
         
