@@ -41,8 +41,8 @@ function App() {
         <Route path="/post"exact>
           <Post/>
         </Route>
-        <Route path ="/admin" exact>
-    <MyMedia/>
+        <Route path ="/dashboard" exact>
+          <Dashboard/>
         </Route>
       </Switch>
         
