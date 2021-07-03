@@ -37,10 +37,10 @@ function Group() {
 							<h3 style={{ fontFamily: "Open sans" }}>Group Members</h3>
 
 							<ButtonGroup vertical className='w-100'>
-								<Button variant='success'>Detjon Qoqaj</Button>
-								<Button variant='info'>Gent Abazi</Button>
-								<Button variant='success'>Genc Abazi</Button>
-								<Button variant='info'>Uranik Hodaj</Button>
+								<Button variant='info'>Detjon Qoqaj</Button>
+								<Button variant='dark'>Gent Abazi</Button>
+								<Button variant='info'>Genc Abazi</Button>
+								<Button variant='dark'>Uranik Hodaj</Button>
 							</ButtonGroup>
 							<Button></Button>
 						</Col>
@@ -55,19 +55,19 @@ function Group() {
 							<h3 style={{ fontFamily: "Open sans" }}>Subjects</h3>
 
 							<ButtonGroup vertical className='w-100'>
-								<Button variant='success' size='lg'>
+								<Button variant='info' size='lg'>
 									Lab Course 1
 								</Button>
-								<Button variant='info' size='sm'>
+								<Button variant='dark' size='sm'>
 									Inxhinieri Softuerike
 								</Button>
-								<Button variant='success'>
+								<Button variant='info'>
 									Hyrje Ne Siguri Te Informacionit
 								</Button>
-								<Button variant='info'>Struktura Diskrete 2</Button>
-								<Button variant='success'>Sisteme Operative</Button>
-								<Button variant='info'>Sisteme dhe Sinjale</Button>
-								<Button variant='success'>HCI</Button>
+								<Button variant='dark'>Struktura Diskrete 2</Button>
+								<Button variant='info'>Sisteme Operative</Button>
+								<Button variant='dark'>Sisteme dhe Sinjale</Button>
+								<Button variant='info'>HCI</Button>
 							</ButtonGroup>
 						</Col>
 					</Row>
