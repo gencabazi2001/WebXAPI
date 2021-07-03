@@ -34,7 +34,7 @@ function Navbar() {
                     <Nav.Link href="#">Feed</Nav.Link>
                     <Nav.Link href="#">Private Groups</Nav.Link>
 
-                    { localStorage.getItem('user').userRole !== 'Admin' ? (<Nav.Link href="#" >
+                    { localStorage.getItem('user').userRole === 'Admin' ? (<Nav.Link href="#" >
                         Admin Dashboard
                     </Nav.Link>) : null }
                 </Nav>
