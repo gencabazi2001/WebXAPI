@@ -7,6 +7,9 @@ function Navbar() {
 
     const history = useHistory();
     const [logged, setLogged] = useState(false)
+    const [adm,setAdm]=useState(false);
+
+
 
     function logoutHandler() {
         setLogged(false);
@@ -18,7 +21,12 @@ function Navbar() {
         if (localStorage.getItem("token") != null) {
             setLogged(true);
         }
-    }, [logged])
+        if(localStorage.getItem("user")!=null){
+        if(localStorage.getItem("user").userRole==="admin"){
+            setAdm(true);
+        }
+    }
+    }, [logged,adm])
 
     return (
         <BNavbar bg="dark" expand variant="dark" className="p-2">
@@ -34,7 +42,7 @@ function Navbar() {
                     <Nav.Link href="#">Feed</Nav.Link>
                     <Nav.Link href="#">Private Groups</Nav.Link>
 
-                    { localStorage.getItem('user').userRole === 'Admin' ? (<Nav.Link href="#" >
+                    { adm ? (<Nav.Link href="#" >
                         Admin Dashboard
                     </Nav.Link>) : null }
                 </Nav>
