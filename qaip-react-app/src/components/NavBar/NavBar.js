@@ -7,7 +7,7 @@ function Navbar() {
 
     const history = useHistory();
     const [logged, setLogged] = useState(false)
-    const [adm,setAdm]=useState(false);
+    
 
 
 
@@ -17,16 +17,15 @@ function Navbar() {
         localStorage.removeItem('user');
         history.push('/')
     }
+
     useEffect(() => {
         if (localStorage.getItem("token") != null) {
             setLogged(true);
+         
         }
-        if(localStorage.getItem("user")!=null){
-        if(localStorage.getItem("user").userRole==="admin"){
-            setAdm(true);
-        }
-    }
-    }, [logged,adm])
+        
+      
+    }, [logged])
 
     return (
         <BNavbar bg="dark" expand variant="dark" className="p-2">
@@ -38,13 +37,15 @@ function Navbar() {
                     style={ { maxHeight: '100px', width: '40%' } }
                     navbarScroll
                 >
+            
                     <Nav.Link href="/profile">Profile</Nav.Link>
-                    <Nav.Link href="#">Feed</Nav.Link>
+                    <Nav.Link href="/feed">Feed</Nav.Link>
                     <Nav.Link href="#">Private Groups</Nav.Link>
 
-                    { adm ? (<Nav.Link href="#" >
+                    {/* { adm ? (<Nav.Link href="#" >
                         Admin Dashboard
                     </Nav.Link>) : null }
+                    {console.log(adm+"adm")} */}
                 </Nav>
 
                 <div className="d-flex" > <Form className="d-flex">

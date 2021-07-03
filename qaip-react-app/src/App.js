@@ -16,6 +16,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Post from './InterComponents/Posts/Post';
 import MyProfile from "./InterComponents/MyProfile";
 import MyMedia from "./InterComponents/MyMedia";
+import Feed from './PostFeed/Feed'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <LandingPage />
         </Route>
         <ProtectedRoute path="/profile" exact component={Profile} navbar={NavBar}/>
+        <ProtectedRoute path="/feed" exact component={Feed} navbar={NavBar}/>
         <ProtectedRoute path="/users" exact component={ Users } navbar={NavBar}/>
         <ProtectedRoute path="/main" exact component={Main} navbar={NavBar}/>
         <ProtectedRoute path="/subjects" exact component={Subjects} navbar={NavBar}/>

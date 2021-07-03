@@ -11,12 +11,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyProfile from "../InterComponents/MyProfile";
 import MyMedia from "../InterComponents/MyMedia";
 import MyReplies from "../InterComponents/MyReplies";
-import { useState, useEffect } from "react";
+import { useState, useEffect, } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 function Profile() {
   const [ProfileTab, setProfileTab] = useState(2);
   const [userData, setData] = useState({});
   const [fetched, setFetched] = useState(false);
+  const [adm,setAdm] = useState(false);
+  const history = useHistory();
 
  
   function profileHandler(e) {
@@ -28,6 +31,9 @@ function Profile() {
       var js = JSON.stringify(userData);
       localStorage.setItem("user", js);
       console.log(userData);
+      if(userData.userRole==='admin'){
+       history.replace('/users')
+      }
       if (ProfileTab == 1) return <MyReplies />;
       else if (ProfileTab == 2)
         return  (
