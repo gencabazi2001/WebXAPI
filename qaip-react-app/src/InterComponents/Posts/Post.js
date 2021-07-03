@@ -214,7 +214,7 @@ const Post = ({ id, title, text, picture, time, userName }) => {
             <Col xs={10}>
         
 
-              
+           
                {/* {repl.map((post)=>(
                  <h1 key={post.postId}>{post.postId}</h1>
                ))} */}

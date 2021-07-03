@@ -19,6 +19,7 @@ import MyMedia from "./InterComponents/MyMedia";
 import Feed from './PostFeed/Feed'
 import Dashboard from "./pages/Dashboard";
 import Group from './PostFeed/Group'
+import Home from './pages/index';
 
 
 function App() {
@@ -28,8 +29,10 @@ function App() {
       <Switch>
      
         <Route path="/" exact>
-
-          <LandingPage />
+          <Home />
+        </Route>
+        <Route path="/landingpage" exact>
+          <LandingPage/>
         </Route>
         <ProtectedRoute path="/profile" exact component={Profile} navbar={NavBar}/>
         <ProtectedRoute path="/feed" exact component={Feed} navbar={NavBar}/>

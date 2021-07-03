@@ -8,6 +8,8 @@ import { useHistory} from 'react-router-dom'
 
 
 function Main() {
+
+
     const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -16,6 +18,15 @@ function Main() {
   const emailRef = useRef();
   const [isLogged,setIsLogged]=useState(false);
   const history = useHistory();
+
+  
+  const idRef = useRef();
+  const nameRef = useRef();
+  const lNameRef = useRef();
+  const passRef = useRef();
+  const emailref = useRef();
+  const departmentRef = useRef();
+
 
 
   async function loginHandler(e){
@@ -44,12 +55,34 @@ if(isLogged){
   },[isLogged])
 
   
-
+  function submitHandler(event) {
+    event.preventDefault();
+    const entIdRef = parseInt(idRef.current.value);
+    const entNameRef = nameRef.current.value;
+    const entlNameRef = lNameRef.current.value;
+    const entPassRef = passRef.current.value;
+    const entEmailRef = emailref.current.value;
+    const entDepartmentRef = parseInt(departmentRef.current.value);
+    Axios.post("https://localhost:44350/api/users", {
+      userId: entIdRef,
+      userEmail: entEmailRef,
+      userPassword: entPassRef,
+      userFirstNAme: entNameRef,
+      userLastName: entlNameRef,
+      userDescription: "",
+      userPhotoFileName: "",
+      userDepartment: entDepartmentRef,
+      userRole: "",
+     
+    });
+    handleClose();
+  }
   return (
     <Container
       style={{
         backgroundImage: `url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png")`,
-        height: "100vh"
+        height: "100vh",
+        width:"100vw"
       }}
       className="d-flex flex-column justify-content-center w-100"
     >
@@ -100,14 +133,14 @@ if(isLogged){
         </Modal.Header>
         <Modal.Body>
           <Form 
-         // onSubmit={submitHandler}
+          onSubmit={submitHandler}
           >
             <Form.Group controlId="forID">
               <Form.Label>ID</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter userID"
-               // ref={idRef}
+                ref={idRef}
               />
               <br></br>
             </Form.Group>
@@ -116,7 +149,7 @@ if(isLogged){
               <Form.Control
                 type="text"
                 placeholder="Enter user name"
-           //     ref={nameRef}
+                ref={nameRef}
               />
               <br></br>
             </Form.Group>
@@ -125,7 +158,7 @@ if(isLogged){
               <Form.Control
                 type="text"
                 placeholder="Enter user last name"
-         //       ref={lNameRef}
+                ref={lNameRef}
               />
               <br></br>
             </Form.Group>
@@ -134,7 +167,7 @@ if(isLogged){
               <Form.Control
                 type="text"
                 placeholder="Enter department"
-//ref={departmentRef}
+              ref={departmentRef}
               />
               <br></br>
             </Form.Group>
@@ -144,7 +177,7 @@ if(isLogged){
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-         //       ref={emailRef}
+                ref={emailref}
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -157,7 +190,7 @@ if(isLogged){
               <Form.Control
                 type="password"
                 placeholder="Password"
-        //        ref={passwRef}
+                ref={passRef}
               />
               <br></br>
             </Form.Group>
