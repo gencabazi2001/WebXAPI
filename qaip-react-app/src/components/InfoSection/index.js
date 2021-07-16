@@ -12,7 +12,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
     const history = useHistory();
   
     const handleRoute = () =>{ 
-      history.push("/signin");
+      history.push("/landingPage");
     }
     
    

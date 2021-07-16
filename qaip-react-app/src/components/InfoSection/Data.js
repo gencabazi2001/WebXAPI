@@ -37,9 +37,9 @@ export const HomeObjTwo= {
 
 export const HomeObjThree= {
     id:'signup', //about section
-    lightBg:false, //light background false per about
-    lightText:true,
-    lightTextDesc:true,
+    lightBg:true, //light background false per about
+    lightText:false,
+    lightTextDesc:false,
     topLine:'Join Our Community',
     headLine:"Creating an account is extremely easy",
     description:"Get everything set up and ready just for a few minutes. All you need to do is add your information and you're ready to go!",
@@ -47,8 +47,8 @@ export const HomeObjThree= {
     imgStart:true,
     img: require('../../images/svg-3.svg').default,
     alt:'SignUp',
-    dark:true,
-    primary:true,
-    darkText:false
+    dark:false,
+    primary:false,
+    darkText:true
 };
 

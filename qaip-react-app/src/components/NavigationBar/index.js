@@ -84,19 +84,7 @@ const Navbar = ({toggle}) => {
                          offset={-80}
                         >Sign Up</NavLinks>
                     </NavItem>
-                    <NavItem>
-                        <NavLinks to="signup"
-                         smooth={true}
-                         //speed
-                         duration={500}
-                         //which one you are clicking on
-                         spy={true}
-                         //nese the route path osht nje exact match per url-ne e caktume
-                         exact='true'
-                         //ku me bo transition..sepse te navbar e kemi lon -80px
-                         offset={-80}
-                        >LOGINSIGNUP</NavLinks>
-                    </NavItem>
+
                 </NavMenu>
                 <NavBtn>
                     <NavBtnLink to="/landingPage">Sign In</NavBtnLink>
