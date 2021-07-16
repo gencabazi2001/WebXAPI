@@ -28,6 +28,7 @@ namespace WebXAPI.Models
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<TagsPost> TagsPosts { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Ankesat> Ankesat { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,6 +42,23 @@ namespace WebXAPI.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+
+            modelBuilder.Entity<Ankesat>(entity =>
+            {
+                entity.HasKey(e => e.Id)
+                .HasName("PK_Ankesat");
+                    
+                entity.Property(e => e.UserId)
+                          .IsRequired()
+                    .HasColumnName("userID");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnName("Description");
+
+              
+            });
             modelBuilder.Entity<Department>(entity =>
             {
                 entity.Property(e => e.DepartmentId).HasColumnName("departmentID");
@@ -181,12 +199,12 @@ namespace WebXAPI.Models
 
                 entity.Property(e => e.PostDesc)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(500)
                     .HasColumnName("postDesc");
 
                 entity.Property(e => e.PostName)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(250)
                     .HasColumnName("postName");
 
                 entity.Property(e => e.ReplyTo).HasColumnName("replyTo");

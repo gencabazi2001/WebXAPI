@@ -34,7 +34,7 @@ const Post = ({ id, title, text, picture, time, userName }) => {
       })
       .catch((error) => console.log(error));
     setReplies(res);
-    setFetched(true);
+  //  setFetched(true);
   };
 
   function renderReplies() {
@@ -47,7 +47,7 @@ const Post = ({ id, title, text, picture, time, userName }) => {
   useEffect(() => {
     getReplies();
     
-  }, [fetched]);
+  }, []);
 
   function picHandler() {
     var pic = picture;
@@ -209,11 +209,13 @@ const Post = ({ id, title, text, picture, time, userName }) => {
         <Container fluid>
           <Row>
             <Col xs={2}>
-            {renderReplies()}
+         
             </Col>
             <Col xs={10}>
-        
-
+            {renderReplies()}
+           { console.log(repl.length+title)}
+                  {(repl.length!=0)?<h1>{JSON.stringify(repl)}asd</h1>:<h1>spo bon</h1>}
+               
            
                {/* {repl.map((post)=>(
                  <h1 key={post.postId}>{post.postId}</h1>

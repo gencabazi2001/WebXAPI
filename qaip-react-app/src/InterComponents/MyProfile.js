@@ -152,13 +152,8 @@ function MyProfile(props) {
           <AddPost/>
           </Row>
 
-          {/* <Card border="info">
-            <Card.Body>
-              <Card.Title>Titulli</Card.Title>
-              <Card.Text> Some Text</Card.Text>
-            </Card.Body>
-          </Card> */}
-
+       
+    
           { myPosts.map((post) => (
             post.replyTo==null&&
             <Post
@@ -173,12 +168,7 @@ function MyProfile(props) {
          
          }
 
-          {/* <Card border="info">
-            <Card.Body>
-              <Card.Title>Titulli</Card.Title>
-              <Card.Text> Some Text</Card.Text>
-            </Card.Body>
-          </Card> */}
+        
         </Col>
         <Col></Col>
       </Row>

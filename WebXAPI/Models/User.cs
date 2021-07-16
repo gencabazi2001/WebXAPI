@@ -16,6 +16,7 @@ namespace WebXAPI.Models
             PrivateGroupMembers = new HashSet<PrivateGroupMember>();
             PrivateGroups = new HashSet<PrivateGroup>();
             PublicPosts = new HashSet<PublicPost>();
+            Ankesat = new HashSet<Ankesat>();
         }
 
         public int UserId { get; set; }
@@ -40,5 +41,7 @@ namespace WebXAPI.Models
         public virtual ICollection<PrivateGroupMember> PrivateGroupMembers { get; set; }
         public virtual ICollection<PrivateGroup> PrivateGroups { get; set; }
         public virtual ICollection<PublicPost> PublicPosts { get; set; }
+
+        public virtual ICollection<Ankesat> Ankesat { get; set; }
     }
 }
