@@ -83,7 +83,7 @@ function Profile() {
   }
 
   return (
-    <Container  className="w-100 d-flex flex-row justify-content-center mt-3 " >
+    <Container  zclassName="w-100 d-flex flex-row justify-content-center mt-3 " >
       <Row className="w-100">
         <Col xs={2} className="d-flex flex-column align-items-center" >
           <Row>

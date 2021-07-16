@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation, withRouter } from "react-router-dom";
 import Users from "./pages/Users";
 import Departments from "./pages/Departments";
 import GroupMembers from "./pages/GroupMembers";
@@ -22,7 +22,10 @@ import Group from './PostFeed/Group'
 import Home from './pages/index';
 
 
-function App() {
+
+const App = (props) => {
+  const location = useLocation();
+
   return (
     <Container fluid style={{padding:"0px", margin:"0px"}}>
           
@@ -34,15 +37,15 @@ function App() {
         <Route path="/landingpage" exact>
           <LandingPage/>
         </Route>
-        <ProtectedRoute path="/profile" exact component={Profile} navbar={NavBar}/>
-        <ProtectedRoute path="/feed" exact component={Feed} navbar={NavBar}/>
-        <ProtectedRoute path="/users" exact component={ Users } navbar={NavBar}/>
-        <ProtectedRoute path="/main" exact component={Main} navbar={NavBar}/>
-        <ProtectedRoute path="/subjects" exact component={Subjects} navbar={NavBar}/>
-        <ProtectedRoute path="/publicposts" exact component={PublicPosts} navbar={NavBar}/>
-        <ProtectedRoute path="/privategroups" exact component={Group} navbar={NavBar}/>
-        <ProtectedRoute path="/groupmembers" exact component={GroupMembers} navbar={NavBar}/>
-        <ProtectedRoute path="/departments" exact component={Departments} navbar={NavBar}/>
+        <ProtectedRoute path="/profile" exact component={Profile} navbar={NavBar}  />
+        <ProtectedRoute path="/feed" exact component={Feed} navbar={NavBar}  />
+        <ProtectedRoute path="/users" exact component={ Users } navbar={NavBar}  />
+        <ProtectedRoute path="/main" exact component={Main} navbar={NavBar}  />
+        <ProtectedRoute path="/subjects" exact component={Subjects} navbar={NavBar}  />
+        <ProtectedRoute path="/publicposts" exact component={PublicPosts} navbar={NavBar}  />
+        <ProtectedRoute path="/privategroups" exact component={Group} navbar={NavBar}  />
+        <ProtectedRoute path="/groupmembers" exact component={GroupMembers} navbar={NavBar}  />
+        <ProtectedRoute path="/departments" exact component={Departments} navbar={NavBar}  />
         <Route path="/post"exact>
           <Post/>
         </Route>
@@ -50,11 +53,12 @@ function App() {
           <Dashboard/>
         </Route>
       </Switch>
-        
-     
-          <Footer/>
+
+    {props.location.pathname!=='/landingPage' && props.location.pathname!=='/'? <Footer/>: null}
+  
+
     </Container>
   );
 }
 
-export default App;
+export default withRouter(App);
