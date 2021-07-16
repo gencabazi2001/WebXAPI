@@ -3,6 +3,7 @@ import { Form, Button, Container, Col, Row,Badge,Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Axios from "axios";
 import { useHistory} from 'react-router-dom'
+import { HeroContainer,HeroBg,VideoBg,HeroContent,HeroH1,HeroBtnWrapper,HeroP,ArrowForward,ArrowRight } from '../components/NavigationBar/HeroSection/heroElements'
 
 
 
@@ -78,7 +79,7 @@ if(isLogged){
     handleClose();
   }
   return (
-    <Container
+    <Container fluid
       style={{
         backgroundImage: `url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png")`,
         height: "100vh",
@@ -87,29 +88,31 @@ if(isLogged){
       className="d-flex flex-column justify-content-center w-100"
     >
           <h1 className="text-center">
-   <Badge variant="primary">Welcome to Q.A.I.P.</Badge>
+
+   <HeroH1>Welcome to Q.A.I.P.</HeroH1>
   </h1>
       <Row >
           <Col>
       </Col>
     
-      <Col style={{backgroundColor:"#ace4fa",borderRadius:"5px",padding:"20px"}}>
+      <Col style={{backgroundColor:"rgba(0,0,0,0)",borderRadius:"5px",padding:"20px"}}>
         <Form  onSubmit={loginHandler}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" ref={emailRef}/>
+            <Form.Label style={{color:'#0dd6d3',}}>Email address</Form.Label>
+            <Form.Control style={{color:'#0dd6d3',}} type="email" placeholder="Enter email" ref={emailRef}/>
           </Form.Group>
       <br></br>
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" ref={passwRef}/>
+            <Form.Label style={{color:'#0dd6d3',}}>Password</Form.Label>
+            <Form.Control style={{color:'#0dd6d3',}} type="password" placeholder="Password" ref={passwRef}/>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
+            <Form.Check style={{color:'#0dd6d3',}} type="checkbox" label="Check me out" />
           </Form.Group>
             <Form.Group className="d-flex">
                 <Col>
-          <Button  variant="primary" type="submit">
+                
+          <Button  variant="primary" type="submit"  style={{backgroundColor:'#0dd6d3',color:'#000000',}}>
             Login
           </Button>
           </Col>

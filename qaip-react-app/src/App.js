@@ -51,11 +51,7 @@ function App() {
         </Route>
       </Switch>
         
-      <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+     
           <Footer/>
     </Container>
   );

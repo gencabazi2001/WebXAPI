@@ -83,19 +83,33 @@ function Profile() {
   }
 
   return (
-    <Container className="w-100 d-flex flex-row justify-content-center mt-3 ">
+    <Container  className="w-100 d-flex flex-row justify-content-center mt-3 " >
       <Row className="w-100">
-        <Col xs={2} className="border d-flex flex-column align-items-center">
-          <h3>My Groups</h3>
+        <Col xs={2} className="d-flex flex-column align-items-center" >
+          <Row>
+          <Col xs={1}></Col>
+          <Col xs={10}>
+            <Row style={{padding:'5px',wordWrap:'break-word'}}>
+            <h3>My Groups</h3>
 
-          <ButtonGroup vertical className="w-100">
-            <Button variant="info">G1</Button>
-            <Button>G2</Button>
-            <Button variant="danger">G3</Button>
-            <Button variant="info">G4</Button>
-          </ButtonGroup>
+            <ButtonGroup vertical className="w-100">
+
+              <Button style={{borderRadius:'10px',}} variant="outline-primary" >G1</Button>
+              <br/>
+              <Button style={{borderRadius:'10px',}} variant="outline-primary">G2</Button>
+              <br/>
+              <Button style={{borderRadius:'10px',}} variant="outline-primary">G3</Button>
+              <br/>
+              <Button style={{borderRadius:'10px',}} variant="outline-primary">G4</Button>
+              <br/>
+            </ButtonGroup>
+            </Row>
+          </Col>
+          <Col xs={1}></Col>
+          
+          </Row>
         </Col>
-        <Col xs={8} className="border">
+        <Col xs={8} style={{border:'1px solid rgba(13, 110, 253, 0.2)',}}>
           <Row className="m-1">
             <Nav fill variant="tabs" onSelect={profileHandler}>
               <Nav.Item>
@@ -112,11 +126,27 @@ function Profile() {
 
           <Row>{renderElement()}</Row>
         </Col>
-        <Col xs={2} className="border d-flex flex-column align-items-center">
-          <h3>Hot topics!</h3>
-          <h4>#shk1</h4>
-          <h4>#shk2</h4>
-          <h4>#dbProj2021</h4>
+        <Col xs={2} className=" d-flex flex-column align-items-left" >
+          
+          <Row >
+          <Col xs={1}></Col>
+          <Col xs={10}>
+          <Row  style={{border:'1px solid #0d6efd',borderRadius:'25px',padding:'5px',wordWrap:'break-word'}}>
+          <h4>Hot topics</h4>
+          <h5 style={{color:'#0d6efd'}}><a href="#"><b>#</b><i>shk1</i></a></h5>
+          <h5 style={{color:'#0d6efd'}}> <a href="#"><b>#</b><i>shk2</i></a></h5>
+          <h5 style={{color:'#0d6efd'}}><a href="#"><b>#</b><i>dbProj2021</i></a></h5>
+          </Row>
+          <br/>
+          <Row style={{border:'1px solid #0d6efd',borderRadius:'25px',padding:'5px',wordWrap:'break-word',}}>
+          <h4>Suggestions</h4>
+          <h5 style={{color:'#0d6efd'}}><b>@</b>bojack</h5>
+          <h5 style={{color:'#0d6efd'}}><b>@</b>ricknmorty</h5>
+          <h5 style={{color:'#0d6efd'}}><b>@</b>sherlock</h5>
+          </Row>
+            </Col>
+            <Col xs={1}></Col>
+          </Row>
         </Col>
       </Row>
     </Container>
