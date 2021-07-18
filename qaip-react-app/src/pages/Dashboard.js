@@ -14,7 +14,7 @@ import Staffs from './Staffs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
-import Ankesat from './Ankesa';
+import Ankesat from './Ankesat';
 
 function Dashboard() {
     const history = useHistory();
