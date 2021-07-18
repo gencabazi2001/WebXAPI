@@ -11,6 +11,7 @@ import PGroups from './PGroups'
 import GroupMembers from './GroupMembers'
 import Departments from './Departments'
 import Staffs from './Staffs'
+import PostVotes from './PostVotes'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
@@ -39,12 +40,14 @@ function Dashboard() {
             return <Departments />;
         else if (tableTab === 7)
             return <Staffs />;
+        else if (tableTab === 9)
+            return <PostVotes />;
 
     }
 
     return (
         <div>
-          
+
             <Container fluid className="w-100 h-100 d-flex flex-row" style={ { height: "100vh" } }>
                 <Row className="w-100">
                     <Col xs={ 2 } className="d-flex flex-column align-items-center bg-dark">
@@ -83,6 +86,11 @@ function Dashboard() {
                             <ListGroup.Item className='items' onClick={ () => { tableHandler(7) } }>
                                 <Link className='links'>
                                     Staffs
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={ () => { tableHandler(9) } }>
+                                <Link className='links'>
+                                    PostVotes
                                 </Link>
                             </ListGroup.Item>
                         </ListGroup>
