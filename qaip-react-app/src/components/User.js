@@ -51,7 +51,7 @@ function User(props) {
          axios.delete('https://localhost:44350/api/Users/'+id,{
          
          }).then(()=>{
-            history.replace('/users');
+            history.replace('/dashboard');
            
           }).then(()=>{
             props.reloadUsers();
