@@ -44,7 +44,7 @@ function PrivateGorup(props) {
              header:{'Accept':'application/json',
             'Content-Type':'application/json'}
          }).then(()=>{
-            history.replace('/pgroups')
+            history.replace('/dashboard')
           }).then(()=>props.reload());
     }
     return (
