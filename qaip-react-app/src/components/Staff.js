@@ -18,7 +18,7 @@ function Staff(props) {
     function editHandler(e) {
         e.preventDefault();
         const entstafposRef = stafposRef.current.value;
-        axios.put("https://localhost:44350/api/staffs/" + props.userId, {
+        axios.put("https://localhost:44350/api/Staffs/" + props.userId, {
             userId: props.userId,
             staffPosition: entstafposRef
         }).then((res) => console.log(res.data)).then(() => props.reload());
@@ -28,9 +28,9 @@ function Staff(props) {
     function deleteHandler(id) {
         console.log(id);
 
-        axios.delete('https://localhost:44350/api/staffs/' + id)
+        axios.delete('https://localhost:44350/api/Staffs/' + id)
             .then(() => {
-                history.replace('/staffs')
+                history.replace('/dashboard')
             }).then(() => props.reload());
     }
     return (
@@ -38,7 +38,7 @@ function Staff(props) {
             <td>{ props.userId }</td>
             <td>{ props.staffPosition }</td>
             <td><Button style={ { margin: 10 } } variant="primary" onClick={ handleShow }>Edit</Button >
-                <Button variant="danger" onClick={ () => (deleteHandler(props.subjectId)) }>Delete</Button></td>
+                <Button variant="danger" onClick={ () => (deleteHandler(props.userId)) }>Delete</Button></td>
 
 
 
