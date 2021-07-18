@@ -61,7 +61,7 @@ function PublicPost(props) {
 
             <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Add new Post</Modal.Title>
+          <Modal.Title>Edit Public Post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={editHandler}>
