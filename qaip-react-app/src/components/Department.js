@@ -47,7 +47,7 @@ function Department(props) {
              header:{'Accept':'application/json',
             'Content-Type':'application/json'}
          }).then(()=>{
-            history.replace('/departments')
+            history.replace('/dashboard')
           }).then(()=>props.reload());
     }
     return (
