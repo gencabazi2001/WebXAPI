@@ -1,0 +1,22 @@
+.h1Label{
+    text-align: center;
+}
+
+.contUsContainer{
+    background-color: #92cecc;
+}
+
+.textArea{
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.btnGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Submitbtn{
+    width:20%;
+}
