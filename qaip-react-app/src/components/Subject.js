@@ -45,11 +45,8 @@ function Subject(props) {
 
     function deleteHandler(id){
         console.log(id);
-
-         axios.delete('https://localhost:44350/api/subjects/'+id)
-         .then(()=>{
-            history.replace('/subjects')
-          }).then(()=>props.reload());
+        axios.delete('https://localhost:44350/api/subjects/'+id)
+        .then(()=>props.reload());
     }
     return (
         <tr>

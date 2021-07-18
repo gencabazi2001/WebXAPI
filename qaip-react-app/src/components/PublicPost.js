@@ -47,9 +47,7 @@ function PublicPost(props) {
              method:'DELETE',
              header:{'Accept':'application/json',
             'Content-Type':'application/json'}
-         }).then(()=>{
-            history.replace('/publicposts')
-          }).then(()=>props.reload());
+         }).then(()=>props.reload());
     }
     return (
         <tr>

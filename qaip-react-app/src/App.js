@@ -20,6 +20,7 @@ import Feed from './PostFeed/Feed'
 import Dashboard from "./pages/Dashboard";
 import Group from './PostFeed/Group'
 import Home from './pages/index';
+import AdmNavbar from '../src/components/NavBar/NavbarAdm'
 
 
 
@@ -46,12 +47,13 @@ const App = (props) => {
         <ProtectedRoute path="/privategroups" exact component={Group} navbar={NavBar}  />
         <ProtectedRoute path="/groupmembers" exact component={GroupMembers} navbar={NavBar}  />
         <ProtectedRoute path="/departments" exact component={Departments} navbar={NavBar}  />
+        <ProtectedRoute path="/dashboard" exact component={Dashboard} navbar={AdmNavbar}  />
         <Route path="/post"exact>
           <Post/>
         </Route>
-        <Route path ="/dashboard" exact>
+        {/* <Route path ="/dashboard" exact>
           <Dashboard/>
-        </Route>
+        </Route> */}
       </Switch>
 
     {props.location.pathname!=='/landingPage' && props.location.pathname!=='/'? <Footer/>: null}

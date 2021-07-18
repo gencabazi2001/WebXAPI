@@ -250,6 +250,10 @@ namespace WebXAPI.Models
                     .HasMaxLength(50)
                     .HasColumnName("staffPosition");
 
+                entity.Property(e => e.StaffDescription)
+                .HasMaxLength(250)
+                   .HasColumnName("staffDescription");
+
                 entity.HasOne(d => d.User)
                     .WithOne(p => p.Staff)
                     .HasForeignKey<Staff>(d => d.UserId)

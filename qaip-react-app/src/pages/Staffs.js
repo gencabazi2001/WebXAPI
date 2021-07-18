@@ -20,13 +20,18 @@ function Staffs() {
     }
     const useridRef = useRef();
     const stafposRef = useRef();
+    const stafDescRef = useRef();
+
     function submitHandler(event) {
         event.preventDefault();
         const entuseridRef = parseInt(useridRef.current.value);
         const entstafposRef = stafposRef.current.value;
+        const entStafDescRef= stafDescRef.current.value;
+    
         axios.post("https://localhost:44350/api/Staffs", {
             userId: entuseridRef,
             staffPosition: entstafposRef,
+            staffDescription :  entStafDescRef
         }).then(() => setRefreshKey(oldKey => oldKey + 1));
         handleClose();
 
@@ -67,6 +72,7 @@ function Staffs() {
                     <tr>
                         <th>StaffId</th>
                         <th>StaffPosition</th>
+                        <th>StaffDescription</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -76,6 +82,7 @@ function Staffs() {
                             key={ user.id }
                             userId={ user.userId }
                             staffPosition={ user.staffPosition }
+                            staffDescription = {user.staffDescription}
                             reload={ reload }
                         />
                     )) }
@@ -108,6 +115,15 @@ function Staffs() {
                                 type="text"
                                 placeholder="StaffPosition..."
                                 ref={ stafposRef }
+                            />
+                            <br></br>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicDesc">
+                            <Form.Label>Staff Description</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="StaffDescritpion..."
+                                ref={ stafDescRef}
                             />
                             <br></br>
                         </Form.Group>

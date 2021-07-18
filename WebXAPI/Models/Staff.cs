@@ -10,6 +10,8 @@ namespace WebXAPI.Models
         public int UserId { get; set; }
         public string StaffPosition { get; set; }
 
+        public string StaffDescription { get; set; }
+
         public virtual User User { get; set; }
     }
 }

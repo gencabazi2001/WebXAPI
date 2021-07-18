@@ -44,7 +44,7 @@ function Dashboard() {
 
     return (
         <div>
-            <Navbar />
+          
             <Container fluid className="w-100 h-100 d-flex flex-row" style={ { height: "100vh" } }>
                 <Row className="w-100">
                     <Col xs={ 2 } className="d-flex flex-column align-items-center bg-dark">
