@@ -47,7 +47,7 @@ function Department(props) {
              header:{'Accept':'application/json',
             'Content-Type':'application/json'}
          }).then(()=>{
-            history.replace('/departments')
+            history.replace('/dashboard')
           }).then(()=>props.reload());
     }
     return (
@@ -66,7 +66,7 @@ function Department(props) {
             
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Add a new Department</Modal.Title>
+          <Modal.Title>Edit Department</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={editHandler}>

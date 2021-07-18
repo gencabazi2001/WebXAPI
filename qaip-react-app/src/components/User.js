@@ -51,7 +51,7 @@ function User(props) {
          axios.delete('https://localhost:44350/api/Users/'+id,{
          
          }).then(()=>{
-            history.replace('/users');
+            history.replace('/dashboard');
            
           }).then(()=>{
             props.reloadUsers();
@@ -70,7 +70,7 @@ function User(props) {
 
             <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Add a new User</Modal.Title>
+          <Modal.Title>Edit User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={editHandler}>

@@ -64,7 +64,7 @@ function Subject(props) {
 
             <Modal show={show} onHide={handleClose}>
           <Modal.Header>
-            <Modal.Title>Add a new Subject</Modal.Title>
+            <Modal.Title>Edit Subject</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={editHandler}>

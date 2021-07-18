@@ -15,6 +15,7 @@ import PostVotes from './PostVotes'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
+import Ankesat from './Ankesat';
 
 function Dashboard() {
     const history = useHistory();
@@ -43,6 +44,8 @@ function Dashboard() {
         else if (tableTab === 9)
             return <PostVotes />;
 
+        else if (tableTab === 8)
+            return <Ankesat />;
     }
 
     return (
@@ -91,6 +94,11 @@ function Dashboard() {
                             <ListGroup.Item className='items' onClick={ () => { tableHandler(9) } }>
                                 <Link className='links'>
                                     PostVotes
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={ () => { tableHandler(8) } }>
+                                <Link className='links'>
+                                    Contact Us
                                 </Link>
                             </ListGroup.Item>
                         </ListGroup>
