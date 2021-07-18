@@ -18,12 +18,15 @@ function Staffs() {
     function reload() {
         setRefreshKey(oldKey => oldKey + 1);
     }
+    const useridRef = useRef();
     const stafposRef = useRef();
     function submitHandler(event) {
         event.preventDefault();
+        const entuseridRef = parseInt(useridRef.current.value);
         const entstafposRef = stafposRef.current.value;
         axios.post("https://localhost:44350/api/Staffs", {
-            staffPosition: entstafposRef
+            userId: entuseridRef,
+            staffPosition: entstafposRef,
         }).then(() => setRefreshKey(oldKey => oldKey + 1));
         handleClose();
 
@@ -69,7 +72,7 @@ function Staffs() {
                 </thead>
                 <tbody>
                     { loadUsers.map((user) => (
-                        <Subject
+                        <Staff
                             key={ user.id }
                             userId={ user.userId }
                             staffPosition={ user.staffPosition }
@@ -89,6 +92,15 @@ function Staffs() {
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={ submitHandler }>
+                        <Form.Group controlId="formBasicPosition">
+                            <Form.Label>StaffId</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="StaffId..."
+                                ref={ useridRef }
+                            />
+                            <br></br>
+                        </Form.Group>
 
                         <Form.Group controlId="formBasicPosition">
                             <Form.Label>StaffPosition</Form.Label>
