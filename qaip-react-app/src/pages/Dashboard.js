@@ -14,6 +14,7 @@ import Staffs from './Staffs'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
+import Ankesat from './Ankesat';
 
 function Dashboard() {
     const history = useHistory();
@@ -39,7 +40,8 @@ function Dashboard() {
             return <Departments />;
         else if (tableTab === 7)
             return <Staffs />;
-
+        else if (tableTab === 8)
+            return <Ankesat />;
     }
 
     return (
@@ -85,6 +87,11 @@ function Dashboard() {
                                     Staffs
                                 </Link>
                             </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={()=>{tableHandler(8)}}>
+                            <Link className='links'>
+                                Contact Us
+                            </Link>
+                        </ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col xs={ 10 }>
