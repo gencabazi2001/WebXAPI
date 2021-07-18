@@ -17,11 +17,14 @@ import Axios from "axios";
 
 
 function AddPost() {
+     
+
     const refTitle=useRef();
     const refDesc=useRef()
     const user = JSON.parse(localStorage.getItem("user"));
     const userID= user.userId;
     function addPost(e){
+    
         
         var entTitle= refTitle.current.value;
         var entDesc = refDesc.current.value;
@@ -31,8 +34,7 @@ function AddPost() {
             userId:id,
             postName:entTitle,
             postDesc:entDesc,
-            photoFileName:"",
-            subjectId:1
+            photoFileName:""
         }).then((response)=>console.log(response)).catch((error)=>console.log(error));
     }
 

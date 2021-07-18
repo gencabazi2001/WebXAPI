@@ -214,7 +214,7 @@ const Post = ({ id, title, text, picture, time, userName }) => {
             <Col xs={10}>
             {renderReplies()}
            { console.log(repl.length+title)}
-                  {(repl.length!=0)?<h1>{JSON.stringify(repl)}asd</h1>:<h1>spo bon</h1>}
+                  {/* {(repl.length!=0)?<h1>{JSON.stringify(repl)}asd</h1>:<h1>spo bon</h1>} */}
                
            
                {/* {repl.map((post)=>(
