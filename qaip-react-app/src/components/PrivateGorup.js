@@ -59,7 +59,7 @@ function PrivateGorup(props) {
 
             <Modal show={show} onHide={handleClose}>
           <Modal.Header>
-            <Modal.Title>Add a new Provate Group</Modal.Title>
+            <Modal.Title>Edit Private Group</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={editHandler}>
