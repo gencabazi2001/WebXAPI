@@ -70,7 +70,7 @@ function User(props) {
 
             <Modal show={show} onHide={handleClose}>
         <Modal.Header>
-          <Modal.Title>Add a new User</Modal.Title>
+          <Modal.Title>Edit User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={editHandler}>
