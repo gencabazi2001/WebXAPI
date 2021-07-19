@@ -96,6 +96,21 @@ namespace WebXAPI.Controllers
 
             return CreatedAtAction("GetTagsPost", new { id = tagsPost.TagName }, tagsPost);
         }
+        
+        [HttpDelete("{id}/{postId}")]
+        public async Task<IActionResult> DeletePostVote(string id, int postId)
+        {
+            var tagsPost = await _context.TagsPosts.FindAsync(id, postId);
+            if (tagsPost == null)
+            {
+                return NotFound();
+            }
+
+            _context.TagsPosts.Remove(tagsPost);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 
         // DELETE: api/TagsPosts/5
         [HttpDelete("{id}")]
