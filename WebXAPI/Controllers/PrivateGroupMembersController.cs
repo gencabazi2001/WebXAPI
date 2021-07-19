@@ -24,7 +24,9 @@ namespace WebXAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PrivateGroupMember>>> GetPrivateGroupMembers()
         {
-            return await _context.PrivateGroupMembers.ToListAsync();
+            return await _context.PrivateGroupMembers
+                
+                .ToListAsync();
         }
 
         // GET: api/PrivateGroupMembers/5

@@ -98,10 +98,10 @@ namespace WebXAPI.Controllers
         }
 
         // DELETE: api/GroupMembers/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteGroupMember(int id)
+        [HttpDelete("{id}/{userId}")]
+        public async Task<IActionResult> DeleteGroupMember(int id,int userId)
         {
-            var groupMember = await _context.GroupMembers.FindAsync(id);
+            var groupMember = await _context.GroupMembers.FindAsync(id,userId);
             if (groupMember == null)
             {
                 return NotFound();

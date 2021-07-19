@@ -37,9 +37,7 @@ function GroupMember(props) {
              method:'DELETE',
              header:{'Accept':'application/json',
             'Content-Type':'application/json'}
-         }).then(()=>{
-            history.replace('/groupmembers')
-          }).then(()=>props.reload());
+         }).then(()=>props.reload());
     }
     return (
         <tr>
