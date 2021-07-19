@@ -98,11 +98,10 @@ namespace WebXAPI.Controllers
         }
 
         // DELETE: api/PostVotes/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePostVote(int id)
-        {   
-            
-            var postVote = await _context.PostVotes.FindAsync(id);
+        [HttpDelete("{id}/{userId}")]
+        public async Task<IActionResult> DeletePostVote(int id, int userId)
+        {
+            var postVote = await _context.PostVotes.FindAsync(id, userId);
             if (postVote == null)
             {
                 return NotFound();

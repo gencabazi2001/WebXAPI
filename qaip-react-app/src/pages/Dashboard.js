@@ -11,10 +11,13 @@ import PGroups from './PGroups'
 import GroupMembers from './GroupMembers'
 import Departments from './Departments'
 import Staffs from './Staffs'
+import PostVotes from './PostVotes'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
 import Ankesat from './Ankesat';
+import Tags from './Tags';
+import TagPosts from './TagPosts';
 
 function Dashboard() {
     const history = useHistory();
@@ -42,11 +45,17 @@ function Dashboard() {
             return <Staffs />;
         else if (tableTab === 8)
             return <Ankesat />;
+        else if (tableTab === 9)
+            return <PostVotes />;
+        else if (tableTab === 10)
+            return <Tags />;
+        else if (tableTab === 11)
+            return <TagPosts />;
     }
 
     return (
         <div>
-          
+
             <Container fluid className="w-100 h-100 d-flex flex-row" style={ { height: "100vh" } }>
                 <Row className="w-100">
                     <Col xs={ 2 } className="d-flex flex-column align-items-center bg-dark">
@@ -87,11 +96,26 @@ function Dashboard() {
                                     Staffs
                                 </Link>
                             </ListGroup.Item>
-                            <ListGroup.Item className='items' onClick={()=>{tableHandler(8)}}>
-                            <Link className='links'>
-                                Contact Us
-                            </Link>
-                        </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={ () => { tableHandler(9) } }>
+                                <Link className='links'>
+                                    PostVotes
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={ () => { tableHandler(8) } }>
+                                <Link className='links'>
+                                    Contact Us
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={()=>{tableHandler(10)}}>
+                                <Link className='links'>
+                                    Tags
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={()=>{tableHandler(11)}}>
+                                <Link className='links'>
+                                    Tags Posts
+                                </Link>
+                            </ListGroup.Item>
                         </ListGroup>
                     </Col>
                     <Col xs={ 10 }>
