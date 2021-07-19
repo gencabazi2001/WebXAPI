@@ -16,6 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './dashboard.css'
 import Navbar from '../components/NavBar/NavBar'
 import Ankesat from './Ankesat';
+import Tags from './Tags';
+import TagPosts from './TagPosts';
 
 function Dashboard() {
     const history = useHistory();
@@ -41,11 +43,14 @@ function Dashboard() {
             return <Departments />;
         else if (tableTab === 7)
             return <Staffs />;
-        else if (tableTab === 9)
-            return <PostVotes />;
-
         else if (tableTab === 8)
             return <Ankesat />;
+        else if (tableTab === 9)
+            return <PostVotes />;
+        else if (tableTab === 10)
+            return <Tags />;
+        else if (tableTab === 11)
+            return <TagPosts />;
     }
 
     return (
@@ -99,6 +104,16 @@ function Dashboard() {
                             <ListGroup.Item className='items' onClick={ () => { tableHandler(8) } }>
                                 <Link className='links'>
                                     Contact Us
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={()=>{tableHandler(10)}}>
+                                <Link className='links'>
+                                    Tags
+                                </Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className='items' onClick={()=>{tableHandler(11)}}>
+                                <Link className='links'>
+                                    Tags Posts
                                 </Link>
                             </ListGroup.Item>
                         </ListGroup>
